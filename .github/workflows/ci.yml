@@ -1,19 +1,23 @@
 name: CI
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: ecoconnect.settings
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: pip install pytest pytest-django
-      - run: |
-          export DJANGO_SETTINGS_MODULE=ecoconnect.settings
-          python ecoconnect/manage.py check
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-django
+      - name: Django checks
+        run: |
+          python manage.py check --deploy
+      - name: Run tests
+        run: |
           pytest -q
