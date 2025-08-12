@@ -1,0 +1,611 @@
+
+/* === CSS Custom Properties === */
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #0f2918;
+    --darker-green: #1a4d2e;
+    --medium-green: #16432a;
+    --accent-green: #27ae60;
+    --soft-green: #1e3d26;
+    --forest-green: #0d2415;
+    --sage-green: #22543d;
+    --mint-green: #234e3a;
+    --light-accent: #3dd56d;
+    --text-light: #e2f8e8;
+    --text-medium: #c6f0d0;
+    --text-dark: #1a202c;
+    --shadow-soft: 0 4px 20px rgba(46, 204, 113, 0.15);
+    --shadow-medium: 0 8px 30px rgba(46, 204, 113, 0.2);
+    --shadow-strong: 0 12px 40px rgba(46, 204, 113, 0.25);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === General Body === */
+body {
+    background: linear-gradient(135deg, #0f2918 0%, #16432a 30%, #1a4d2e 70%, #22543d 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-light);
+    padding-top: 70px;
+    line-height: 1.6;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* === Navbar === */
+
+.navbar-brand{
+    color: white;
+}
+
+
+
+form select {
+    position: relative;
+    z-index: 10;
+}
+
+
+.navbar {
+    background: rgba(15, 41, 24, 0.95) !important;
+    /* backdrop-filter: blur(15px); */
+    box-shadow: 0 2px 20px rgba(46, 204, 113, 0.2);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+
+    
+}
+
+.navbar .nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar .nav-link:hover {
+    color: var(--light-accent) !important;
+    transform: translateY(-2px);
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--light-accent);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover::after {
+    width: 80%;
+}
+
+/* === Hero Section === */
+.hero-section {
+    background: linear-gradient(135deg, #16432a 0%, #1a4d2e 50%, #22543d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%232ecc71" opacity="0.15"/><circle cx="75" cy="75" r="1.5" fill="%233dd56d" opacity="0.12"/><circle cx="50" cy="10" r="1" fill="%2327ae60" opacity="0.18"/></svg>');
+    pointer-events: none;
+}
+
+/* === Welcome Message Styling === */
+
+
+
+
+.hero-section h1,
+.hero-section .display-5,
+.hero-section p,
+.hero-section .lead {
+    background: transparent !important;
+    color: var(--text-light) !important;
+}
+
+.display-5 {
+    background: linear-gradient(135deg, var(--light-accent) 0%, var(--primary-green) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* === Card Styling === */
+.card {
+    background: rgba(3, 30, 15, 0.8);
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    /* backdrop-filter: blur(10px); */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-accent) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(61, 213, 109, 0.4);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-body {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: var(--text-medium);
+    opacity: 0.95;
+}
+
+/* === Buttons === */
+.btn {
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary, .btn-success {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+    color: var(--text-light);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.btn-primary:hover, .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: linear-gradient(135deg, var(--light-accent) 0%, var(--primary-green) 100%);
+    color: var(--text-light);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* === Forms === */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(22, 67, 42, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    /* backdrop-filter: blur(15px); */
+    position: relative;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+
+    pointer-events: auto !important;
+    z-index: 1;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary-green), var(--light-accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.3;
+
+    /* below 2 lines are fix for frozen elements issue */
+    pointer-events: none;
+    z-index: 0;
+}
+
+form .form-group, form p {
+    margin-bottom: 24px;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"], 
+form input[type="file"], 
+form select, 
+form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(46, 204, 113, 0.3);
+    background-color: rgba(35, 78, 58, 0.8);
+    color: var(--text-light);
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+form input:focus, 
+form select:focus, 
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+    transform: translateY(-2px);
+    background-color: rgba(35, 78, 58, 1);
+}
+
+form .btn {
+    width: 160px;
+    margin-top: 10px;
+}
+
+/* === Footer === */
+footer {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--forest-green) 100%);
+    color: var(--text-medium);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+}
+
+/* === Headings === */
+h1, h2, h3, h4, h5 {
+    color: var(--text-light);
+    font-weight: 600;
+    background: transparent !important;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 35px;
+}
+
+/* === Text Elements === */
+p, .lead {
+    background: transparent !important;
+    color: var(--text-light);
+}
+
+/* === Utility Classes === */
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.lead {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    form {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+/* === Accessibility === */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === Custom Scrollbar === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-green);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-accent);
+}
+
+
+.col-md-4 select.form-select {
+    margin-top: 14px;
+    /* padding: 10px 14px; */
+    height: auto;
+    /* line-height: 1.2; */
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Styling elements for the 3 images in home page */
+
+.custom-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    margin-top: 8rem;
+}
+
+.imgtext-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 10rem;
+    gap: 40px;
+}
+
+.imgtext-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.imgtext-col {
+    flex: 1;
+}
+
+.img-fluid-custom {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.imgtext-right h3 {
+    font-size: 1.75rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.imgtext-right p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .imgtext-row,
+    .imgtext-row.reverse {
+        flex-direction: column;
+    }
+
+    .imgtext-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .imgtext-right h3 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+/* Designs for contact page */
+.contact-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgb(5 42 19 / 90%);
+    border-radius: 20px;
+    /* box-shadow: var(--shadow-medium); */
+    color: var(--text-light);
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--light-accent);
+}
+
+.contact-container .intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.contact-container form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: rgba(22, 67, 42, 0.8);
+    color: var(--text-light);
+    border: 1px solid rgba(61, 213, 109, 0.3);
+    font-size: 0.95rem;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.3);
+}
+
+.contact-container .contact-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-container .contact-info h4 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.contact-container .contact-info p {
+    margin: 4px 0;
+    color: var(--text-medium);
+}

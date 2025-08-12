@@ -1,0 +1,82 @@
+{% extends 'services/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="py-5 px-3 text-center">
+  <h1 class="display-5 fw-bold text-success">Welcome to EcoConnect 🌱</h1>
+  <p class="lead">Your trusted platform for sustainable local services.</p>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4" style="background-color: #90c0aa; border: none;">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="color: #14532d;">☀️ What is EcoConnect?</h5>
+        <p class="card-text" style="color: #2c3e50;">EcoConnect links you with trusted local providers for eco-friendly services like solar, composting, and more!</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4" style="background-color: #90c0aa; border: none;">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="color: #14532d;">♻️ Why Go Green?</h5>
+        <p class="card-text" style="color: #2c3e50;">Choosing green services helps you lower your carbon footprint and protect the planet starting from your home.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4" style="background-color: #90c0aa; border: none;">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="color: #14532d;">💧 How It Works</h5>
+        <p class="card-text" style="color: #2c3e50;">Explore our services, view verified providers, and book seamlessly all in one sustainable platform EcoConnect.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-4 mb-5">
+  <a href="{% url 'providers' %}" class="btn btn-lg" style="background-color: #27ae60; color: white;">
+    Explore Providers
+  </a>
+</div>
+
+<!-- images and text -->
+
+<div class="custom-container">
+
+  <!-- Section 1: Image Left, Text Right -->
+  <div class="imgtext-row">
+    <div class="imgtext-col imgtext-left">
+      <img src="{% static 'services/images/solar_panel.jpg' %}" alt="Solar" class="img-fluid-custom">
+    </div>
+    <div class="imgtext-col imgtext-right">
+      <h3>Power Your Home with the Sun</h3>
+      <p>Switch to clean energy with certified solar panel installers in your area. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quo maiores itaque illum iure dolorum quia quaerat earum rerum in et molestias est fugit voluptas aperiam a vero officiis aliquam porro, obcaecati, illo eum corporis! Quas ab dolores illum! Neque molestiae nam inventore eveniet, odio iure optio eius dolores perspiciatis!</p>
+    </div>
+  </div>
+
+  <!-- Section 2: Text Left, Image Right -->
+  <div class="imgtext-row reverse">
+    <div class="imgtext-col imgtext-left">
+      <img src="{% static 'services/images/compost.jpg' %}" alt="Compost" class="img-fluid-custom">
+    </div>
+    <div class="imgtext-col imgtext-right">
+      <h3>Compost, the Smart Way</h3>
+      <p>Schedule regular compost pickup and turn your waste into environmental gold. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut officiis iste maxime facere nostrum? Rerum pariatur officia voluptas adipisci esse accusantium sapiente ipsum consequatur molestiae! Adipisci, nisi laboriosam optio, quis similique officia molestias dolores, minus quo ipsam inventore alias dolorum praesentium! Numquam ab aut necessitatibus nisi exercitationem corporis non placeat!</p>
+    </div>
+  </div>
+
+  <!-- Section 3: Image Left, Text Right -->
+  <div class="imgtext-row">
+    <div class="imgtext-col imgtext-left">
+      <img src="{% static 'services/images/insulation.jpg' %}" alt="Insulation" class="img-fluid-custom">
+    </div>
+    <div class="imgtext-col imgtext-right">
+      <h3>Keep Your Home Cozy</h3>
+      <p>Get expert insulation services to reduce energy bills and stay warm all year. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, vero. Placeat nostrum repudiandae suscipit ratione consequuntur molestias iusto atque dicta, quaerat veritatis sapiente recusandae, eum velit. Sed, optio culpa? Accusantium optio architecto, ratione odio laborum quos amet officiis earum provident sapiente magni rem necessitatibus quidem rerum asperiores consequuntur eveniet mollitia!</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

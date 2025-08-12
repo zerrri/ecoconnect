@@ -1,0 +1,21 @@
+{% extends 'services/base.html' %}
+{% block content %}
+<h2 class="mb-3">My Service</h2>
+<div class="row">
+  {% for p in providers %}
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <span class="badge bg-success">{{ p.get_service_type_display }}</span>
+          <p class="mb-1">Location: {{ p.location }}</p>
+          <p class="mb-1">Pricing: {{ p.price_note|default:"-" }}</p>
+          <a class="btn btn-outline-secondary btn-sm" href="{% url 'manage_availability' p.id %}">Manage Availability</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>You haven't created a provider profile yet. <a href="{% url 'create_provider' %}">Create one</a>.</p>
+  {% endfor %}
+</div>
+{% endblock %}

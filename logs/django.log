@@ -1,0 +1,108 @@
+INFO 2025-08-12 13:26:21,149 autoreload 10996 5836 Watching for file changes with StatReloader
+INFO 2025-08-12 13:26:26,761 autoreload 10996 5836 D:\Users\Nishant\Documents\GitHub\ecoconnect\services\models.py changed, reloading.
+INFO 2025-08-12 13:26:27,547 autoreload 7348 3956 Watching for file changes with StatReloader
+INFO 2025-08-12 13:28:41,130 autoreload 7348 3956 D:\Users\Nishant\Documents\GitHub\ecoconnect\manage.py changed, reloading.
+INFO 2025-08-12 13:35:40,523 autoreload 2768 13564 Watching for file changes with StatReloader
+WARNING 2025-08-12 13:35:44,058 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:35:44,062 basehttp 2768 10420 "GET / HTTP/1.1" 200 5934
+INFO 2025-08-12 13:35:44,506 basehttp 2768 2368 "GET /static/services/images/compost.jpg HTTP/1.1" 200 45353
+INFO 2025-08-12 13:35:44,510 basehttp 2768 10420 "GET /static/services/images/solar_panel.jpg HTTP/1.1" 200 130037
+INFO 2025-08-12 13:35:44,849 basehttp 2768 10420 "GET /static/services/images/insulation.jpg HTTP/1.1" 200 138317
+WARNING 2025-08-12 13:35:49,168 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:35:49,185 basehttp 2768 10420 "GET /providers/ HTTP/1.1" 200 6667
+WARNING 2025-08-12 13:35:59,346 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:35:59,348 basehttp 2768 10420 "GET /book/?provider=4 HTTP/1.1" 302 0
+WARNING 2025-08-12 13:35:59,359 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:35:59,359 basehttp 2768 10420 "GET /login/?next=/book/%3Fprovider%3D4 HTTP/1.1" 200 2768
+WARNING 2025-08-12 13:36:02,208 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:36:02,208 basehttp 2768 10420 "GET /book/ HTTP/1.1" 302 0
+WARNING 2025-08-12 13:36:02,225 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:36:02,225 basehttp 2768 10420 "GET /login/?next=/book/ HTTP/1.1" 200 2768
+WARNING 2025-08-12 13:36:16,099 base 2768 10420 Session data corrupted
+INFO 2025-08-12 13:36:16,146 basehttp 2768 10420 "POST /login/?next=/book/ HTTP/1.1" 302 0
+INFO 2025-08-12 13:36:16,182 basehttp 2768 10420 "GET /book/ HTTP/1.1" 200 4028
+INFO 2025-08-12 13:36:31,071 basehttp 2768 10420 "GET /book/?provider=1 HTTP/1.1" 200 4036
+INFO 2025-08-12 13:36:39,778 basehttp 2768 10420 "POST /book/?provider=1 HTTP/1.1" 200 4075
+INFO 2025-08-12 13:36:47,915 basehttp 2768 10420 "POST /book/?provider=1 HTTP/1.1" 200 4075
+INFO 2025-08-12 13:36:54,064 basehttp 2768 10420 "GET /history/ HTTP/1.1" 200 1896
+INFO 2025-08-12 13:36:56,211 basehttp 2768 10420 "GET /provider-dashboard/ HTTP/1.1" 200 2178
+ERROR 2025-08-12 13:37:00,902 log 2768 10420 Internal Server Error: /provider/8/availability/
+Traceback (most recent call last):
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\Nishant\Documents\GitHub\ecoconnect\services\views.py", line 108, in manage_availability
+    return render(request, "services/manage_availability.html", {"provider": provider, "form": form, "page": page})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nishant\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
+ERROR 2025-08-12 13:37:00,908 basehttp 2768 10420 "GET /provider/8/availability/ HTTP/1.1" 500 212373
+INFO 2025-08-12 13:37:07,542 basehttp 2768 10420 "GET /providers/ HTTP/1.1" 200 6663
+INFO 2025-08-12 13:37:11,672 basehttp 2768 10420 "GET /book/ HTTP/1.1" 200 4028
+INFO 2025-08-12 13:37:13,066 basehttp 2768 10420 "GET /history/ HTTP/1.1" 200 1896
+INFO 2025-08-12 13:37:14,533 basehttp 2768 10420 "GET /provider-dashboard/ HTTP/1.1" 200 2178
+INFO 2025-08-12 13:37:16,246 basehttp 2768 10420 "GET / HTTP/1.1" 200 5802

@@ -1,0 +1,52 @@
+{% extends 'services/base.html' %}
+{% load form_extras %}
+
+{% block content %}
+<h2 class="mb-3">Book a Green Service</h2>
+
+<form method="get" class="mb-3">
+  <label class="form-label">Choose Provider:</label>
+  <select name="provider" class="form-select" onchange="this.form.submit()">
+    <option value="">-- Select --</option>
+    {% for p in form.fields.provider.queryset %}
+      <option value="{{ p.id }}" {% if selected_provider and selected_provider.id == p.id %}selected{% endif %}>{{ p.name }} ({{ p.get_service_type_display }})</option>
+    {% endfor %}
+  </select>
+</form>
+
+<form method="post" class="mt-4">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div class="mb-3">
+    <label class="form-label">Provider</label>
+    {{ form.provider|add_class:"form-select" }}
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Date</label>
+    {{ form.booking_date|add_class:"form-control" }}
+    <div class="form-text">
+      {% if available_dates %}
+        Available dates: {{ available_dates|join:", " }}
+      {% else %}
+        Select a provider to see available dates.
+      {% endif %}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Confirm Booking</button>
+</form>
+
+<script>
+  // Prevent picking dates not listed in available_dates (client hint; server enforces too)
+  const availableDates = {{ available_dates|safe|default:"[]" }};
+  const available = new Set(availableDates);
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput && available.size > 0) {
+    dateInput.addEventListener('change', (e) => {
+      if (!available.has(e.target.value)) {
+        alert("This date is not available for the selected provider.");
+        e.target.value = "";
+      }
+    });
+  }
+</script>
+{% endblock %}
